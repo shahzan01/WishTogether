@@ -25,7 +25,9 @@ app.use(
   })
 );
 
-const allowedOrigins = (process.env.CORS_ORIGIN || "").split(",");
+const allowedOrigins = (
+  process.env.CORS_ORIGIN + ",https://wish-together.vercel.app/"
+).split(",");
 
 app.use(
   cors({
