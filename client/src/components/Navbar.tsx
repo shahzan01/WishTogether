@@ -76,16 +76,13 @@ const Navbar: React.FC = () => {
                   Sign In
                 </Button>
                 <Button
+                  variant="outline"
                   onClick={() => {
                     navigate("/signup");
                   }}
-                  className={`bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 transition-all duration-300 
-                    ${
-                      scrolled
-                        ? "shadow-md hover:shadow-lg"
-                        : "bg-opacity-90 hover:bg-opacity-100"
-                    }
-                    hover:-translate-y-0.5 active:translate-y-0`}
+                  className={`border-purple-600 text-purple-600 dark:border-purple-400 dark:text-purple-400 transition-all duration-300 
+                    ${scrolled ? "hover:shadow-md" : ""}
+                    hover:bg-purple-50 dark:hover:bg-purple-900/30 hover:-translate-y-0.5`}
                 >
                   Sign Up
                 </Button>
