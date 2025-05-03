@@ -39,13 +39,14 @@ app.use(
 
       return callback(new Error("Not allowed by CORS"));
     },
-    credentials: process.env.CORS_CREDENTIALS === "true",
-    exposedHeaders: (process.env.CORS_EXPOSE_HEADERS || "").split(","),
-    allowedHeaders: (process.env.CORS_ALLOW_HEADERS || "").split(","),
-    methods: (process.env.CORS_ALLOW_METHODS || "").split(","),
-    maxAge: Number.parseInt(process.env.CORS_MAX_AGE || "600"),
+    credentials: true,
+    exposedHeaders: ["Content-Type", "Authorization"],
+    methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
+    allowedHeaders: ["Origin", "Content-Type", "Accept", "Authorization"],
+    maxAge: 600,
   })
 );
+app.options("*", cors());
 app.use(express.json({ limit: "16kb" }));
 app.use(express.urlencoded({ extended: true, limit: "16kb" }));
 app.use(express.static("public"));

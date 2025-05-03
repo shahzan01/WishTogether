@@ -1,54 +1,106 @@
-# React + TypeScript + Vite
+# WishTogether Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The frontend of WishTogether is a modern React application built with TypeScript, Vite, and Tailwind CSS. It provides an intuitive user interface for managing wishlists collaboratively.
 
-Currently, two official plugins are available:
+## Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **React**: UI library for building component-based interfaces
+- **TypeScript**: Static typing for JavaScript
+- **Vite**: Fast development server and build tool
+- **Tailwind CSS**: Utility-first CSS framework
+- **React Router**: For client-side routing
+- **Recoil**: State management library
+- **Axios**: HTTP client for API requests
 
-## Expanding the ESLint configuration
+## Project Structure
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```
+client/
+├── src/
+│   ├── atoms/           # Recoil state atoms
+│   ├── components/      # Reusable UI components
+│   ├── routes/          # Route configurations
+│   ├── pages/           # Page components for different routes
+│   ├── services/        # API service functions
+│   ├── types/           # TypeScript type definitions
+│   ├── utils/           # Utility functions
+│   ├── App.tsx          # Main application component
+│   └── main.tsx         # Application entry point
+├── public/              # Static assets
+├── index.html           # HTML entry point
+├── package.json         # Project dependencies and scripts
+├── tsconfig.json        # TypeScript configuration
+├── vite.config.ts       # Vite configuration
+└── tailwind.config.js   # Tailwind CSS configuration
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Key Features
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Authentication
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+- JWT-based authentication system
+- Login and registration
+- Token storage and validation
+
+### Wishlist Management
+
+- Create new wishlists
+- Add items with details (title, description, price, URL, etc.)
+- Manage existing wishlists (edit, delete)
+- View wishlist details and contained items
+
+### Collaboration
+
+- Share wishlists via public links
+- Invite collaborators to wishlists
+- Control collaborator permissions
+- View shared wishlists
+
+### User Interface
+
+- Responsive design for mobile and desktop
+- Dark/light theme support
+- Intuitive navigation
+- Modern and clean UI components
+
+## Development
+
+### Prerequisites
+
+- Node.js (v18 or higher)
+- PNPM package manager
+
+### Setup
+
+1. Install dependencies:
+
+   ```bash
+   pnpm install
+   ```
+
+2. Set up environment variables:
+
+   - Create a `.env` file in the root directory
+   - Add the required variables:
+     ```
+     VITE_API_URL=http://localhost:5000/api/v1
+     ```
+
+3. Start the development server:
+
+   ```bash
+   pnpm dev
+   ```
+
+4. Build for production:
+   ```bash
+   pnpm build
+   ```
+
+## Best Practices
+
+- **Component Structure**: Keep components small and focused on a single responsibility
+- **State Management**: Use Recoil for global state and React hooks for local state
+- **TypeScript**: Utilize TypeScript for type safety and better developer experience
+- **Error Handling**: Implement proper error handling for API requests
+- **Responsive Design**: Ensure the application works well on all device sizes
