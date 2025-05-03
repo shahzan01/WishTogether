@@ -1,0 +1,46 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch -r dotenv/config --experimental-json-modules src/index.ts",
+    "build": "prisma generate && tsc && tsc-alias && node scripts/fix-imports.js",
+    "start": "node dist/index.js",
+    "db:studio": "prisma studio",
+    "db:migrate": "prisma migrate dev",
+    "db:push": "prisma db push",
+    "db:generate": "prisma generate"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@prisma/client": "^5.10.0",
+    "@types/bcrypt": "^5.0.2",
+    "@types/bcryptjs": "^3.0.0",
+    "@types/cookie-parser": "^1.4.8",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "@types/jsonwebtoken": "^9.0.9",
+    "@types/node": "^22.15.3",
+    "bcrypt": "^5.1.1",
+    "bcryptjs": "^3.0.2",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
+    "express": "^4.18.2",
+    "helmet": "^8.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "nodemon": "^3.1.10",
+    "ts-node": "^10.9.2",
+    "tsc-alias": "^1.8.15",
+    "tsx": "^4.19.4",
+    "typescript": "^5.8.3",
+    "zod": "^3.24.3"
+  },
+  "devDependencies": {
+    "prisma": "^5.22.0"
+  }
+}

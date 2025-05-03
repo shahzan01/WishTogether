@@ -1,0 +1,7 @@
+-- AlterTable
+ALTER TABLE "Item" ALTER COLUMN "createdById" DROP NOT NULL,
+ALTER COLUMN "updatedById" DROP NOT NULL;
+
+-- AlterTable
+ALTER TABLE "Wishlist" ALTER COLUMN "createdById" DROP NOT NULL,
+ALTER COLUMN "updatedById" DROP NOT NULL;

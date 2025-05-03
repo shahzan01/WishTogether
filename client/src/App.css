@@ -1,0 +1,5 @@
+@import "tailwindcss";
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+.app-container {
+  @apply min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-200;
+}
