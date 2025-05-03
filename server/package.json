@@ -12,7 +12,7 @@
     "db:migrate": "prisma migrate dev",
     "db:push": "prisma db push",
     "db:generate": "prisma generate",
-    "vercel-build": "prisma generate"
+    "vercel-build": "prisma generate && tsc && tsc-alias && node scripts/fix-imports.js"
   },
   "keywords": [],
   "author": "",
