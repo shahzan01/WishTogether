@@ -25,9 +25,11 @@ app.use(
   })
 );
 
-const allowedOrigins = (
-  process.env.CORS_ORIGIN + ",https://wish-together.vercel.app/"
-).split(",");
+const allowedOrigins = [
+  ...(process.env.CORS_ORIGIN ? process.env.CORS_ORIGIN.split(",") : []),
+  "https://wish-together.vercel.app",
+  "http://localhost:3000", // add other valid origins here
+];
 
 app.use(
   cors({
@@ -38,7 +40,7 @@ app.use(
       if (allowedOrigins.includes(origin)) {
         return callback(null, true);
       }
-
+      console.error("❌ CORS blocked request from origin:", origin);
       return callback(new Error("Not allowed by CORS"));
     },
     credentials: true,
