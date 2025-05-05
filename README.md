@@ -30,7 +30,7 @@ This project is split into two main parts:
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/yourusername/WishTogether.git
+   git clone https://github.com/shahzan01/WishTogether.git
    cd WishTogether
    ```
 
@@ -66,11 +66,14 @@ This project is split into two main parts:
 ## Demo Video
 
 <div align="center">
-  <video width="640" height="360" controls>
-    <source src="demo.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
+   <h2>Gdrive : https://drive.google.com/file/d/1_C1a9Ypidj6nAbcrvd79Qc3HFOteDttK/view?usp=sharing</h2>
+
+   <h1>Youtube</h1>
+  <a href="https://www.youtube.com/watch?v=MZcjPv5Lv_8" target="_blank">
+    <img src="https://img.youtube.com/vi/MZcjPv5Lv_8/hqdefault.jpg" alt="Watch the demo video" width="640" height="360" />
+  </a>
 </div>
+
 
 ## Detailed Documentation
 
