@@ -1,7 +1,9 @@
-import express from "express";
+import express, { Request, Response } from "express";
 import cors from "cors";
 
 import helmet from "helmet";
+import cron from "node-cron";
+import axios from "axios";
 import cookieParser from "cookie-parser";
 import dotenv from "dotenv";
 import v1Routes from "./routes/v1.routes.js";
@@ -72,6 +74,19 @@ app.get("/", (req, res) => {
     },
     current_mode: NODE_ENV,
   });
+});
+
+app.get("/test", (req: Request, res: Response) => {
+  res.status(200).json({ msg: "Hello there" });
+});
+
+cron.schedule("*/14 * * * *", async () => {
+  try {
+    const res = await axios.get(`http://localhost:10000/test`);
+    console.log(res.data);
+  } catch (e) {
+    console.error(e);
+  }
 });
 
 app.use("/api/v1", v1Routes);
