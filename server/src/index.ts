@@ -80,9 +80,9 @@ app.get("/test", (req: Request, res: Response) => {
   res.status(200).json({ msg: "Hello there" });
 });
 
-cron.schedule("*/14 * * * *", async () => {
+cron.schedule("*/12 * * * *", async () => {
   try {
-    const res = await axios.get(`http://localhost:10000/test`);
+    const res = await axios.get(`http://localhost:${PORT}/test`);
     console.log(res.data);
   } catch (e) {
     console.error(e);
